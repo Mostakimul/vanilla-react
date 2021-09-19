@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Pet from "./Pet";
 
+/*
 // sample h1 rendering
 const App = () => {
   return React.createElement("div", {}, [
@@ -23,6 +24,18 @@ const App = () => {
       breed: "Bengal",
     }),
   ]);
+};
+*/
+
+const App = () => {
+  return (
+    <div>
+      <h1>Adopt me!</h1>
+      <Pet name="Luna" animal="Dog" breed="Havanese" />
+      <Pet name="Paper" animal="Bird" breed="Cockatiel" />
+      <Pet name="Bean" animal="Dog" breed="Terrier" />
+    </div>
+  );
 };
 
 ReactDOM.render(React.createElement(App), document.getElementById("root"));
