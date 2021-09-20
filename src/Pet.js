@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; // eslint-disable-line
 
 const Pet = ({ name, animal, breed, images, location, id }) => {
   let hero = "https://pets-images.dev-apis.com/pets/none.jpg";

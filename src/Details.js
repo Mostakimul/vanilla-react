@@ -1,5 +1,6 @@
 import { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom"; // eslint-disable-line
+import Carousel from "./Carousel";
 
 class Details extends Component {
   state = { loading: true };
@@ -24,9 +25,13 @@ class Details extends Component {
       return <h3>Loading....</h3>;
     }
 
-    const { animal, breed, city, state, description, name } = this.state;
+    const { animal, breed, city, state, description, name, images } =
+      this.state;
     return (
       <div>
+        <div>
+          <Carousel images={images} />
+        </div>
         <h1>{name}</h1>
         <h2>{`${animal} - ${breed} -${city}, ${state}`}</h2>
         <button>Adopt {name}</button>
