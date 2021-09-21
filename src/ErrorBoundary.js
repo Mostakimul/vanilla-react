@@ -1,8 +1,8 @@
 import { Component } from "react";
-import { Link } from "react-router-dom"; // eslint-disable-line
+import { Link, Redirect } from "react-router-dom"; // eslint-disable-line
 
 class ErrorBoundary extends Component {
-  state = { hasError: false };
+  state = { hasError: false, redirect: false };
 
   static getDerivedStateFromError() {
     return { hasError: true };
@@ -10,14 +10,17 @@ class ErrorBoundary extends Component {
 
   componentDidCatch(error, info) {
     console.error("ErrorBoundary caught", error, info);
+    setTimeout(() => this.setState({ redirect: true }), 5000);
   }
 
   render() {
-    if (this.state.hasError) {
+    if (this.state.redirect) {
+      return <Redirect to="/" />;
+    } else if (this.state.hasError) {
       return (
         <h2>
           There is an error. <Link to="/">Click here</Link> to go back to the
-          home page
+          home page or wait 5 sec...
         </h2>
       );
     }
