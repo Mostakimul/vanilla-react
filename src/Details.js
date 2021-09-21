@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { withRouter } from "react-router-dom"; // eslint-disable-line
 import Carousel from "./Carousel";
+import ErrorBoundary from "./ErrorBoundary";
 
 class Details extends Component {
   state = { loading: true };
@@ -51,4 +52,12 @@ const Details = () => {
 };
 */
 
-export default withRouter(Details);
+const DetailsWithRouter = withRouter(Details);
+
+export default function DetailsWithErrorBoundary() {
+  return (
+    <ErrorBoundary>
+      <DetailsWithRouter />
+    </ErrorBoundary>
+  );
+}
